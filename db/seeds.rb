@@ -9,7 +9,6 @@ buyer6 = Buyer.create( first_name: 'Helga', last_name: 'Pataki', age: 18, img_ur
 buyer7 = Buyer.create( first_name: 'Cat', last_name: 'Dog', age: 18, img_url: 'https://static.wikia.nocookie.net/viacom4633/images/5/50/CatDog.png/revision/latest?cb=20200321021516', budget: 220000, preapproved: true)
 buyer8 = Buyer.create( first_name: 'Nigel', last_name: 'Thornberry', age: 18, img_url: 'https://static.wikia.nocookie.net/wildthornberrys/images/c/c2/NIGEL_%282%29.png/revision/latest?cb=20180824131248', budget: 60000, preapproved: true)
 
-
 #Houses
 
 house1 = House.create(img_url: 'https://static.wikia.nocookie.net/spongefan/images/e/e1/SpongeBob_house.jpg/revision/latest/scale-to-width-down/640?cb=20180210163257', address: '124 Conch St.', beds: 2, baths: 2, square_feet: 1250, price: 190000, agent_id: 1, buyer_id: 1)
@@ -23,7 +22,7 @@ house8 = House.create(img_url: 'https://media-cldnry.s-nbcnews.com/image/upload/
 
 #Agents
 
-agent1 = Agent.create(first_name: 'Mrs.', last_name: 'Puff', img_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Mrs._Puff.svg/1200px-Mrs._Puff.svg.png', license_number: 256782, brokerage: 'Puff Realty')
+agent1 = Agent.create(first_name: 'Mrs.', last_name: 'Puff', img_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Mrs._Puff.svg/1200px-Mrs._Puff.svg.png', license_number: 256782, brokerage: 'Puff Puff..Realty')
 agent2 = Agent.create(first_name: 'Sandy', last_name: 'Cheeks', img_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a0/Sandy_Cheeks.svg/1200px-Sandy_Cheeks.svg.png', license_number: 259885, brokerage: 'Cheeks Domes and Homes')
 agent3 = Agent.create(first_name: 'Gerald', last_name: 'Johanssen', img_url: 'https://static.wikia.nocookie.net/heyarnold/images/a/aa/Gerald_TJM.png/revision/latest?cb=20171109070206', license_number: 253101, brokerage: 'GJo Realty')
 agent4 = Agent.create(first_name: 'Tommy', last_name: 'Pickles', img_url: 'https://static.wikia.nocookie.net/nickelodeon/images/8/8c/Tommy_Pickles_in_Newer_Years.png/revision/latest?cb=20190607225227', license_number: 256999, brokerage: 'Pickles Places')
