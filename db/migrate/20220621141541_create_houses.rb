@@ -8,7 +8,6 @@ class CreateHouses < ActiveRecord::Migration[7.0]
       t.integer :square_feet
       t.integer :price
       t.integer :agent_id
-      t.integer :buyer_id
 
       t.timestamps
     end
