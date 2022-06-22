@@ -3,7 +3,9 @@ import { Form, Button } from 'react-bootstrap';
 
 function Login() {
   return (
-    <Form className="rounded p-4 p-sm-3">
+    <div>
+      <h1>Login</h1>
+      {/* <Form className="rounded p-4 p-sm-3">
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email Address</Form.Label>
         <Form.Control type="email" placeholder="Enter Email" />
@@ -15,7 +17,8 @@ function Login() {
       <Button variant="primary" type="submit">
         Login
       </Button>
-    </Form>
+    </Form> */}
+    </div>
   );
 }
 

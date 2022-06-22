@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Login from './Login';
+import SignUp from './SignUp';
 import HouseList from './HouseList';
 import AgentList from './AgentList';
 
@@ -22,13 +23,16 @@ function Container() {
 
   return (
     <div className="Container">
-      {/* //     <Routes>
-      <Route path="/" />
-  //       <Route path="/login" element={<Login />} />
-  //       <Route path="/signup" element={<SignUp />} />
-  //       <Route path="/houses" element={<HouseList houseList={houseList} />} />
-  //       <Route path="/agents" element={<AgentList agentList={agentList} />} />
-  //     </Routes> */}
+      <h1>Container</h1>
+
+      <Routes>
+        <Route path="/login">{/* <Login /> */}</Route>
+        {/* <Route path="/" />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/houses" element={<HouseList houseList={houseList} />} />
+        <Route path="/agents" element={<AgentList agentList={agentList} />} /> */}
+      </Routes>
     </div>
   );
 }
