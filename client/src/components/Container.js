@@ -22,11 +22,13 @@ function Container() {
 
   return (
     <div className="Container">
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/houses" element={<HouseList houseList={houseList} />} />
-        <Route path="/agents" element={<AgentList agentList={agentList} />} />
-      </Routes>
+      {/* //     <Routes>
+      <Route path="/" />
+  //       <Route path="/login" element={<Login />} />
+  //       <Route path="/signup" element={<SignUp />} />
+  //       <Route path="/houses" element={<HouseList houseList={houseList} />} />
+  //       <Route path="/agents" element={<AgentList agentList={agentList} />} />
+  //     </Routes> */}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, ListGroupItem, ListGroupItem } from 'react-bootstrap';
+import { Button, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 function HouseCard({ house }) {
   return (

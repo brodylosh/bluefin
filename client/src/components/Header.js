@@ -1,10 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router';
 
 function Header() {
-  let navigate = useNavigate();
   return (
-    <h1 className="Title" onClick={() => navigate('../houses')}>
+    <h1 className="Title">
       BlueFin
       <span className="logo" role="img">
         🐟
