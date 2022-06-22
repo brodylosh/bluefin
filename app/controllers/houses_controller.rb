@@ -30,6 +30,6 @@ class HousesController < ApplicationController
     private
 
     def house_params
-        params.permit(:first_name, :last_name, :age, :img_url, :budget, :preapproved)
+        params.permit(:img_url, :address, :beds, :baths, :square_feet, :price, :agent_id)
     end
 end

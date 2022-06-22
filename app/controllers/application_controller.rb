@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     private
 
     def not_found
-        render json: {error: "#{thing} not found"}, status: 404
+        render json: {error: "item not found"}, status: 404
     end
 
     def show_errors(invalid)

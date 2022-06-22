@@ -7,6 +7,8 @@ class CreateBuyers < ActiveRecord::Migration[7.0]
       t.string :img_url
       t.integer :budget
       t.boolean :preapproved
+      t.string :username
+      t.string :password
 
       t.timestamps
     end
