@@ -1,12 +1,14 @@
 import '../App.css';
 import Header from './Header';
-import Login from './Login';
+import NavBar from './NavBar';
+import Container from './Container';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Login />
+      <NavBar />
+      <Container />
     </div>
   );
 }
