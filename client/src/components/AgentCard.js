@@ -1,16 +1,16 @@
 import React from 'react';
-// import { Button } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 
 function AgentCard({ agent }) {
   return (
-    <div>
-      <h1>{agent.first_name + ' ' + agent.last_name}</h1>
-      <img src={agent.img_url} />
-      <h3>License #: {agent.license_number}</h3>
-      <h4>Brokerage: {agent.brokerage}</h4>
-      {/* agent/:id/houses */}
-      {/* <Button>Listings</Button> */}
-    </div>
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={agent.img_url} />
+      <Card.Body>
+        <Card.Title>Brokerage: {agent.brokerage}</Card.Title>
+        <Card.Text>License #: {agent.license_number}</Card.Text>
+        <Button variant="primary">View Listings</Button>
+      </Card.Body>
+    </Card>
   );
 }
 
