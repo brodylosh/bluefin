@@ -7,7 +7,6 @@ function AgentList({ agentList }) {
   });
   return (
     <div>
-      <h1>Agents</h1>
       <ul>{renderAgents} </ul>;
     </div>
   );
