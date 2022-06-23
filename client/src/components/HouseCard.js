@@ -7,7 +7,7 @@ function HouseCard({ house }) {
       <Card.Img variant="top" src={house.img_url} />
       <Card.Body>
         <Card.Title>{house.address}</Card.Title>
-        <Card.Text>{house.price}</Card.Text>
+        <Card.Text>${house.price}</Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroupItem>Beds: {house.beds}</ListGroupItem>

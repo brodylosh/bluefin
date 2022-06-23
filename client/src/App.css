@@ -2,6 +2,22 @@
   text-align: center;
 }
 
+.title {
+  font-family: "All The Way To The Sun";
+  color: #0051A8;
+  font-size: 100px;
+}
+
+.navbar {
+  width: 35%;
+  margin: auto;
+}
+
+.form {
+  width: 50%;
+  margin: auto;
+}
+
 .parent {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
