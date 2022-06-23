@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 // import { Navbar } from 'react-bootstrap/Navbar';
 // import { Nav, Container } from 'react-bootstrap';
 // import { NavLink } from 'react-router-dom';
@@ -6,7 +7,9 @@ import React from 'react';
 function NavBar() {
   return (
     <div>
-      <h1>NavBar</h1>
+      <NavLink to="/houses">Houses</NavLink>
+      <NavLink to="/agents">Agents</NavLink>
+
       {/* <Navbar bg="dark" variant="dark"> */}
       {/* <Container> */}
       {/* <Navbar.Brand href="#home"> */}
