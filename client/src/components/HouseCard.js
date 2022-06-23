@@ -4,7 +4,14 @@ import { Button, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 function HouseCard({ house }) {
   return (
     <div>
-      <Card style={{ width: '18rem' }}>
+      {/* <h1>House</h1> */}
+      <h1>{house.address}</h1>
+      <img src={house.img_url} />
+      <p>{house.price}</p>
+      <p>{house.beds}</p>
+      <p>{house.baths}</p>
+
+      {/* <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={house.image_url} />
         <Card.Body>
           <Card.Title>{house.address}</Card.Title>
@@ -22,7 +29,7 @@ function HouseCard({ house }) {
           <Button>Save Home</Button>
           <Button>Edit Listing</Button>
         </Card.Body>
-      </Card>
+      </Card> */}
     </div>
   );
 }

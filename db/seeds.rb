@@ -1,3 +1,8 @@
+Buyer.destroy_all
+House.destroy_all
+Agent.destroy_all
+Listing.destroy_all
+
 #Buyers
 
 buyer1 = Buyer.create( first_name: 'SpongeBob', last_name: 'SquarePants', age: 32, img_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/SpongeBob_SquarePants_character.svg/640px-SpongeBob_SquarePants_character.svg.png', budget: 200000, preapproved: true, username: 'square1', password:'SecretFormula')
@@ -9,6 +14,15 @@ buyer6 = Buyer.create( first_name: 'Helga', last_name: 'Pataki', age: 18, img_ur
 buyer7 = Buyer.create( first_name: 'Cat', last_name: 'Dog', age: 18, img_url: 'https://static.wikia.nocookie.net/viacom4633/images/5/50/CatDog.png/revision/latest?cb=20200321021516', budget: 220000, preapproved: true, username: 'CatDog', password:'dogsRule')
 buyer8 = Buyer.create( first_name: 'Nigel', last_name: 'Thornberry', age: 18, img_url: 'https://static.wikia.nocookie.net/wildthornberrys/images/c/c2/NIGEL_%282%29.png/revision/latest?cb=20180824131248', budget: 60000, preapproved: true, username: 'nigelT', password:'smashing24')
 
+#Agents
+
+agent1 = Agent.create(first_name: 'Mrs.', last_name: 'Puff', img_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Mrs._Puff.svg/1200px-Mrs._Puff.svg.png', license_number: 256782, brokerage: 'Puff Puff..Realty')
+agent2 = Agent.create(first_name: 'Sandy', last_name: 'Cheeks', img_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a0/Sandy_Cheeks.svg/1200px-Sandy_Cheeks.svg.png', license_number: 259885, brokerage: 'Cheeks Domes and Homes')
+agent3 = Agent.create(first_name: 'Gerald', last_name: 'Johanssen', img_url: 'https://static.wikia.nocookie.net/heyarnold/images/a/aa/Gerald_TJM.png/revision/latest?cb=20171109070206', license_number: 253101, brokerage: 'GJo Realty')
+agent4 = Agent.create(first_name: 'Tommy', last_name: 'Pickles', img_url: 'https://static.wikia.nocookie.net/nickelodeon/images/8/8c/Tommy_Pickles_in_Newer_Years.png/revision/latest?cb=20190607225227', license_number: 256999, brokerage: 'Pickles Places')
+agent5 = Agent.create(first_name: 'Doug', last_name: 'Funnie', img_url: 'https://static.wikia.nocookie.net/doug/images/a/a5/Doug_Funnie2.png/revision/latest?cb=20180531191407', license_number: 250908, brokerage: 'Hilarious Homes')
+agent6 = Agent.create(first_name: 'Rocko', last_name: 'Rama', img_url: 'https://static.wikia.nocookie.net/nickelodeon/images/4/4d/Rocko_Rama_in_Static_Cling.png/revision/latest?cb=20190829003314', license_number: 252743, brokerage: 'Modern Homes')
+
 #Houses
 
 house1 = House.create(img_url: 'https://static.wikia.nocookie.net/spongefan/images/e/e1/SpongeBob_house.jpg/revision/latest/scale-to-width-down/640?cb=20180210163257', address: '124 Conch St.', beds: 2, baths: 2, square_feet: 1250, price: 190000, agent_id: 1)
@@ -19,15 +33,6 @@ house5 = House.create(img_url: 'https://res.cloudinary.com/sagacity/image/upload
 house6 = House.create(img_url: 'https://static.wikia.nocookie.net/catdog/images/7/7c/CatDog%27s_House.jpg/revision/latest/scale-to-width-down/1200?cb=20220522055604', address: '123 Main St.', beds: 9, baths: 3, square_feet: 4200, price: 1200000, agent_id: 1)
 house7 = House.create(img_url: 'https://static.wikia.nocookie.net/nickelodeon/images/5/59/ConVee.jpg/revision/latest?cb=20180908015439', address: 'Mobile', beds: 2, baths: 1, square_feet: 100, price: 38000, agent_id: 1)
 house8 = House.create(img_url: 'https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_19/1434996/full-house-home-today-main-190508.jpg', address: '1234 Main St.', beds: 5, baths: 3, square_feet: 3200, price: 750000, agent_id: 1)
-
-#Agents
-
-agent1 = Agent.create(first_name: 'Mrs.', last_name: 'Puff', img_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Mrs._Puff.svg/1200px-Mrs._Puff.svg.png', license_number: 256782, brokerage: 'Puff Puff..Realty')
-agent2 = Agent.create(first_name: 'Sandy', last_name: 'Cheeks', img_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a0/Sandy_Cheeks.svg/1200px-Sandy_Cheeks.svg.png', license_number: 259885, brokerage: 'Cheeks Domes and Homes')
-agent3 = Agent.create(first_name: 'Gerald', last_name: 'Johanssen', img_url: 'https://static.wikia.nocookie.net/heyarnold/images/a/aa/Gerald_TJM.png/revision/latest?cb=20171109070206', license_number: 253101, brokerage: 'GJo Realty')
-agent4 = Agent.create(first_name: 'Tommy', last_name: 'Pickles', img_url: 'https://static.wikia.nocookie.net/nickelodeon/images/8/8c/Tommy_Pickles_in_Newer_Years.png/revision/latest?cb=20190607225227', license_number: 256999, brokerage: 'Pickles Places')
-agent5 = Agent.create(first_name: 'Doug', last_name: 'Funnie', img_url: 'https://static.wikia.nocookie.net/doug/images/a/a5/Doug_Funnie2.png/revision/latest?cb=20180531191407', license_number: 250908, brokerage: 'Hilarious Homes')
-agent6 = Agent.create(first_name: 'Rocko', last_name: 'Rama', img_url: 'https://static.wikia.nocookie.net/nickelodeon/images/4/4d/Rocko_Rama_in_Static_Cling.png/revision/latest?cb=20190829003314', license_number: 252743, brokerage: 'Modern Homes')
 
 #Listings
 

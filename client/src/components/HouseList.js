@@ -6,7 +6,12 @@ function HouseList({ houseList }) {
     return <HouseCard key={house.id} house={house} />;
   });
 
-  return <ul>{renderHouses} </ul>;
+  return (
+    <div>
+      {/* <h1>Houses</h1> */}
+      <ul>{renderHouses} </ul>;
+    </div>
+  );
 }
 
 export default HouseList;

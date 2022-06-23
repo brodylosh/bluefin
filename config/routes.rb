@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :listings
   resources :agents, only: [:index, :show, :create]
-  resources :houses
+  resources :houses, only: [:index, :show] 
   resources :buyers, only: [:index, :show, :create]
 
   post "/login", to: "sessions#create"
