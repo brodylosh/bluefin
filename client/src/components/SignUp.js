@@ -73,22 +73,17 @@ function SignUp() {
             onChange={(e) => setImage(e.target.value)}
           />
         </Form.Group>
-        {/* <Form.Group className="mb-3 half-left">
+        <Form.Group className="mb-3 half-left">
           <Form.Label>Budget</Form.Label>
-          <Form.Control
-            placeholder="Budget"
-            value={budget}
-            onChange={(e) => setBudget(e.target.value)}
-          />
-        </Form.Group> */}
-        <InputGroup className="mb-3 half-left">
-          <InputGroup.Text>$</InputGroup.Text>
-          <FormControl
-            placeholder="Budget"
-            value={budget}
-            onChange={(e) => setBudget(e.target.value)}
-          />
-        </InputGroup>
+          <InputGroup className="mb-3 half-left">
+            <InputGroup.Text>$</InputGroup.Text>
+            <FormControl
+              placeholder="Budget"
+              value={budget}
+              onChange={(e) => setBudget(e.target.value)}
+            />
+          </InputGroup>
+        </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Preapproved</Form.Label>
           <Form.Check
