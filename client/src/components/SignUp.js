@@ -8,39 +8,40 @@ function SignUp() {
   const [age, setAge] = useState(0);
   const [image, setImage] = useState('');
   const [budget, setBudget] = useState(0);
-  const [preapproved, setPreapproved] = useState(false);
+  // const [preapproved, setPreapproved] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // function handleSubmit(e) {
-  //   const buyer = {
-  //     first_name: firstName,
-  //     last_name: lastName,
-  //     age: age,
-  //     img_url: image,
-  //     budget: budget,
-  //     preapproved: preapproved,
-  //     username: username,
-  //     password: password,
-  //   };
-  //   fetch('/buyers', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(buyer),
-  //   }).then((res) => {
-  //     if (res.ok) {
-  //       res.json().then(setCurrentUser);
-  //     } else {
-  //       res.json().then((e) => setErrors(Object.entries(e.error).flat()));
-  //     }
-  //   });
-  // }
+  function handleSubmit(e) {
+    e.preventDefault();
+    const buyer = {
+      first_name: firstName,
+      last_name: lastName,
+      age: age,
+      img_url: image,
+      budget: budget,
+      // preapproved: preapproved,
+      username: username,
+      password: password
+    };
+    fetch('/buyers', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(buyer),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then(console.log);
+      } else {
+        res.json().then(console.log("errors"));
+      }
+    });
+  }
 
   return (
     <div>
       <h1>SignUp</h1>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>First Name:</label>
         <input
           type="text"
