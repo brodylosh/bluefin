@@ -1,4 +1,5 @@
 class BuyersController < ApplicationController
+    skip_before_action :authorize, only: :create
 
     def index
         buyers = Buyer.all 
@@ -6,18 +7,18 @@ class BuyersController < ApplicationController
     end
 
     def show
-        buyer = Buyer.find(params[:id])
-        render json: buyer, status: :ok
+        render json: @current_buyer
     end
 
     def create
         buyer = Buyer.create!(buyer_params)
+        session[:buyer_id] = buyer.id
         render json: buyer, status: :created
     end
 
     private
 
     def buyer_params
-        params.permit(:first_name, :last_name, :age, :img_url, :budget, :preapproved)
+        params.permit(:first_name, :last_name, :age, :img_url, :budget, :preapproved, :username, :password, :password_confirmation)
     end
 end

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-    before_action :authorize
+    protect_from_forgery with: :null_session
+    # before_action :authorize
     include ActionController::Cookies
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
     rescue_from ActiveRecord::RecordInvalid, with: :show_errors
@@ -14,7 +15,9 @@ class ApplicationController < ActionController::Base
         render json: {errors: invalid.record.errors.full_messages}, status: 422
     end
 
-    def authorize 
-        render json: {error: 'Not authorized'}, status: :unauthorized unless session.include? :buyer_id
-    end
+    # def authorize
+    #     @current_buyer = Buyer.find_by(id: session[:buyer_id])
+    
+    #     render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_buyer
+    #   end
 end

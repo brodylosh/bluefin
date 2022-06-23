@@ -1,9 +1,14 @@
 class SessionsController < ApplicationController
+    skip_before_action :authorize, only: :create
 
-    def create
-        user = Buyer.find_by(username: params[:username])
-        session[:buyer_id] = user.id
-        render json: user
+     def create
+            buyer = Buyer.find_by(username: params[:username])
+            if buyer&.authenticate(params[:password])
+              session[:buyer_id] = buyer.id
+              render json: buyer
+            else
+              render json: { errors: ["Invalid username or password"] }, status: :unauthorized
+        end
     end
 
     def destroy

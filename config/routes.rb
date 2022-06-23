@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :houses
   resources :buyers, only: [:index, :show, :create]
 
-  post "/Login", to: "sessions#create"
-  delete "/logout" to: "sessions#destroy"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+  post "/signup", to: "buyers#create"
+  get "/me", to: "buyers#show"
 end

@@ -2,6 +2,14 @@ import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 function SignUp() {
+
+  // function onSubmit(e){
+  //   e.preventDefault();
+  //   const buyer = {
+  //     username,
+  //     password
+  // }
+  // }
   return (
     <div>
       {/* <Form className="rounded p-4 p-sm-3">
