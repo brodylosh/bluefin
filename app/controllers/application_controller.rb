@@ -16,7 +16,9 @@ class ApplicationController < ActionController::Base
       render json: {errors: invalid.record.errors.full_messages}, status: 422
   end
 
-  def authorize 
-      render json: {error: 'Not authorized'}, status: :unauthorized unless session.include? :buyer_id
+  def authorize
+    @current_buyer = Buyer.find_by(id: session[:buyer_id])
+
+    render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_buyer
   end
 end
