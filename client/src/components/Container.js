@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import SignUp from './SignUp';
 import HouseList from './HouseList';
@@ -24,38 +23,13 @@ function Container() {
 
   return (
     <div className="Container">
-      <h1>Container</h1>
-      <HouseList houseList={houseList} />
-      <AgentList agentList={agentList} />
-      <Login />
-      <SignUp />
 
-      {/* <Routes>
-        <Route path="/login">{<Login />}</Route>
-        <Route path="/" />
-        <Route path="/login" element={<Login />} />
+      <Routes>
+        <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/houses" element={<HouseList houseList={houseList} />} />
         <Route path="/agents" element={<AgentList agentList={agentList} />} />
-      </Routes> */}
-      {/* <BrowserRouter>
-        <div className="App">
-          <Switch>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/signup">
-              <SignUp />
-            </Route>
-            <Route path="/houses">
-              <HouseList />
-            </Route>
-            <Route path="/agents">
-              <AgentList />
-            </Route>
-          </Switch>
-        </div>
-      </BrowserRouter> */}
+      </Routes>
     </div>
   );
 }
