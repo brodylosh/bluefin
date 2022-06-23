@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from "react-router-dom"
 // import { Form, Button } from 'react-bootstrap';
 
 function SignUp() {
@@ -95,6 +96,9 @@ function SignUp() {
         />
         <button type="submit">Sign Up!</button>
       </form>
+      <h2> Already a member? </h2>
+      <Link to="/"> <button> Log in </button></Link>
+
       {/* <Form className="rounded p-4 p-sm-3">
        <Form.Group className="mb-3" controlId="formBasicEmail">
          <Form.Label>Email Address</Form.Label>
