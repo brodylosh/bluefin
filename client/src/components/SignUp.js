@@ -1,14 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+// import { Form, Button } from 'react-bootstrap';
 
 function SignUp() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [age, setAge] = useState(0);
+  const [image, setImage] = useState('');
+  const [budget, setBudget] = useState(0);
+  const [preapproved, setPreapproved] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // function onSubmit(e) {
+  // function handleSubmit(e) {
   //   const buyer = {
-  //     username,
-  //     password,
+  //     first_name: firstName,
+  //     last_name: lastName,
+  //     age: age,
+  //     img_url: image,
+  //     budget: budget,
+  //     preapproved: preapproved,
+  //     username: username,
+  //     password: password,
   //   };
   //   fetch('/buyers', {
   //     method: 'POST',
@@ -25,6 +37,64 @@ function SignUp() {
 
   return (
     <div>
+      <h1>SignUp</h1>
+
+      <form>
+        <label>First Name:</label>
+        <input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <label>Last Name:</label>
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <label>Age:</label>
+        <input
+          type="number"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        />
+        <label>Image:</label>
+        <input
+          type="text"
+          placeholder="Image URL"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
+        <label>Budget:</label>
+        <input
+          type="number"
+          value={budget}
+          onChange={(e) => setBudget(e.target.value)}
+        />
+        {/* <label>Are You Preapproved?</label>
+        <input
+          type="checkbox"
+          value={preapproved}
+          onChange={setPreapproved(!preapproved)}
+        /> */}
+        <label>Username:</label>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <label>Password:</label>
+        <input
+          type="text"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Sign Up!</button>
+      </form>
       {/* <Form className="rounded p-4 p-sm-3">
        <Form.Group className="mb-3" controlId="formBasicEmail">
          <Form.Label>Email Address</Form.Label>

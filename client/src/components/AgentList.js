@@ -2,12 +2,14 @@ import React from 'react';
 import AgentCard from './AgentCard';
 
 function AgentList({ agentList }) {
-  // let renderAgents = agentList.map((agent) => {
-  //   return <AgentCard key={agent.id} agent={agent} />;
-  // });
+  let renderAgents = agentList.map((agent) => {
+    return <AgentCard key={agent.id} agent={agent} />;
+  });
   return (
-    <h1>Hi</h1>
-    // <ul>{renderAgents} </ul>;
+    <div>
+      <h1>Agents</h1>
+      <ul>{renderAgents} </ul>;
+    </div>
   );
 }
 

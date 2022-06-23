@@ -1,17 +1,15 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 
 function AgentCard({ agent }) {
   return (
     <div>
       <h1>{agent.first_name + ' ' + agent.last_name}</h1>
-      <img src={agent.image_url} />
-      <ul>
-        <li>License #: {agent.beds}</li>
-        <li>Brokerage: {agent.baths}</li>
-      </ul>
+      <img src={agent.img_url} />
+      <h3>License #: {agent.license_number}</h3>
+      <h4>Brokerage: {agent.brokerage}</h4>
       {/* agent/:id/houses */}
-      <Button>Listings</Button>
+      {/* <Button>Listings</Button> */}
     </div>
   );
 }
