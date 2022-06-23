@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 
 function SignUp() {
   const [firstName, setFirstName] = useState('');
@@ -38,81 +38,92 @@ function SignUp() {
   }
 
   return (
-    <Form className="rounded p-4 p-sm-3 form" onSubmit={handleSubmit}>
-      <Form.Group className="mb-3">
-        <Form.Label>First Name</Form.Label>
-        <Form.Control
-          placeholder="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Age</Form.Label>
-        <Form.Control
-          placeholder="Age"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Image</Form.Label>
-        <Form.Control
-          placeholder="Image"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Budget</Form.Label>
-        <Form.Control
-          placeholder="Budget"
-          value={budget}
-          onChange={(e) => setBudget(e.target.value)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicImage">
-        <Form.Label>Preapproved</Form.Label>
-        <Form.Check
-          type="switch"
-          value={preapproved}
-          onChange={(preapproved) => setPreapproved(false)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Username</Form.Label>
-        <Form.Control
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        SignUp
-      </Button>
-      <br></br>
-      <br></br>
-      <h4>Already a member?</h4>
-      <NavLink to="/">
-        <Button>Log In</Button>
-      </NavLink>
-    </Form>
+    <>
+      <h1>Sign Up:</h1>
+      <Form className="rounded p-4 p-sm-3 form" onSubmit={handleSubmit}>
+        <Form.Group className="mb-3 half-left">
+          <Form.Label>First Name</Form.Label>
+          <Form.Control
+            placeholder="First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3 half-right">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control
+            placeholder="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3 half-left">
+          <Form.Label>Age</Form.Label>
+          <Form.Control
+            placeholder="Age"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3 half-right">
+          <Form.Label>Image</Form.Label>
+          <Form.Control
+            placeholder="Image"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
+        </Form.Group>
+        {/* <Form.Group className="mb-3 half-left">
+          <Form.Label>Budget</Form.Label>
+          <Form.Control
+            placeholder="Budget"
+            value={budget}
+            onChange={(e) => setBudget(e.target.value)}
+          />
+        </Form.Group> */}
+        <InputGroup className="mb-3 half-left">
+          <InputGroup.Text>$</InputGroup.Text>
+          <FormControl
+            placeholder="Budget"
+            value={budget}
+            onChange={(e) => setBudget(e.target.value)}
+          />
+        </InputGroup>
+        <Form.Group className="mb-3">
+          <Form.Label>Preapproved</Form.Label>
+          <Form.Check
+            type="switch"
+            value={preapproved}
+            onChange={(preapproved) => setPreapproved(false)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Sign Up
+        </Button>
+        <br></br>
+        <br></br>
+        <h4>Already a member?</h4>
+        <NavLink to="/" className="d-grid gap-2">
+          <Button sz="lg">Log In</Button>
+        </NavLink>
+      </Form>
+    </>
   );
 }
 

@@ -18,6 +18,16 @@
   margin: auto;
 }
 
+.half-left {
+  width: 47%;
+  float: left;
+}
+
+.half-right {
+  width: 47%;
+  float: right;
+}
+
 .parent {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

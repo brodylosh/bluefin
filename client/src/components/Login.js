@@ -36,14 +36,14 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Login
+        <Button variant="primary" type="submit" size="lg">
+          Log In
         </Button>
         <br></br>
         <br></br>
         <h4>New to BlueFin?</h4>
-        <NavLink to="/signup">
-          <Button>Sign Up</Button>
+        <NavLink to="/signup" className="d-grid gap-2">
+          <Button size="lg">Sign Up</Button>
         </NavLink>
       </Form>
     </div>
