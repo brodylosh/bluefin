@@ -7,7 +7,7 @@ function HouseList({ houseList }) {
   });
 
   return (
-    <div>
+    <div className="container">
       {/* <h1>Houses</h1> */}
       <ul>{renderHouses} </ul>;
     </div>

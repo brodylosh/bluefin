@@ -1,16 +1,16 @@
 import React from 'react';
-import { Button, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 function HouseCard({ house }) {
   return (
     <div>
-      {/* <h1>House</h1> */}
+      <h1>House</h1>
       <h1>{house.address}</h1>
       <img src={house.img_url} />
       <p>{house.price}</p>
       <p>{house.beds}</p>
       <p>{house.baths}</p>
-
+      <Button></Button>
       {/* <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={house.image_url} />
         <Card.Body>
