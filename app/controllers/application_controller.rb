@@ -1,8 +1,22 @@
-class ApplicationController < ActionController::API
-    include ActionController::Cookies
+class ApplicationController < ActionController::Base
+  include ActionController::Cookies
   
-    def hello_world
-      session[:count] = (session[:count] || 0) + 1
-      render json: { count: session[:count] }
-    end
+#   before_action :authorize
+  
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from ActiveRecord::RecordInvalid, with: :show_errors
+
+  private
+
+  def not_found
+      render json: {error: "item not found"}, status: 404
   end
+
+  def show_errors(invalid)
+      render json: {errors: invalid.record.errors.full_messages}, status: 422
+  end
+
+  def authorize 
+      render json: {error: 'Not authorized'}, status: :unauthorized unless session.include? :buyer_id
+  end
+end

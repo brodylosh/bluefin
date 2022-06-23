@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get '/hello', to: 'application#hello_world'
+  resources :listings
+  resources :agents, only: [:index, :show, :create]
+  resources :houses
+  resources :buyers, only: [:index, :show, :create]
 
-  get '*path',
-      to: 'fallback#index',
-      constraints: ->(req) { !req.xhr? && req.format.html? }
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 end
