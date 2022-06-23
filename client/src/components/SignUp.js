@@ -73,14 +73,6 @@ function SignUp() {
             onChange={(e) => setImage(e.target.value)}
           />
         </Form.Group>
-        {/* <Form.Group className="mb-3 half-left">
-          <Form.Label>Budget</Form.Label>
-          <Form.Control
-            placeholder="Budget"
-            value={budget}
-            onChange={(e) => setBudget(e.target.value)}
-          />
-        </Form.Group> */}
         <InputGroup className="mb-3 half-left">
           <InputGroup.Text>$</InputGroup.Text>
           <FormControl
