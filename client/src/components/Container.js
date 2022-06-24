@@ -9,6 +9,9 @@ import AgentList from './AgentList';
 function Container() {
   const [houseList, setHouseList] = useState([]);
   const [agentList, setAgentList] = useState([]);
+
+  const [currentBuyer, setCurrentBuyer] = useState('');
+
   const [houseSearch, setHouseSearch] = useState('');
   const [agentSearch, setAgentSearch] = useState('');
 
@@ -36,6 +39,15 @@ function Container() {
 
   if (!currentBuyer) return <Login setCurrentBuyer={setCurrentBuyer} />;
 
+  useEffect(() => {
+    fetch('/me')
+    .then(resp => {
+      if(resp.ok){
+        resp.json().then(buyer => setCurrentBuyer(buyer))
+      }
+    })
+  }, [])
+
   let filteredHouses = houseList.filter((house) =>
     house.address.toLowerCase().includes(houseSearch.toLowerCase())
   );
@@ -44,11 +56,12 @@ function Container() {
     agent.first_name.toLowerCase().includes(agentSearch.toLowerCase())
   );
 
+
   return (
     <div className="Container">
       {currentBuyer ? <NavBar setCurrentBuyer={setCurrentBuyer} /> : null}
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Login currentBuyer = {currentBuyer}/>} />
         <Route path="/signup" element={<SignUp />} />
         <Route
           path="/houses"
