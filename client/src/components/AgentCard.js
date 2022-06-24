@@ -10,7 +10,7 @@ function AgentCard({ agent }) {
         <Card.Title>{agent.first_name + ' ' + agent.last_name}</Card.Title>
         <Card.Text>Brokerage: {agent.brokerage}</Card.Text>
         <Card.Text>License #: {agent.license_number}</Card.Text>
-        <NavLink to="/houses" className="d-grid gap-2">
+        <NavLink to={`/agents/${agent.id}`} className="d-grid gap-2">
           <Button variant="primary">View Listings</Button>
         </NavLink>
       </Card.Body>

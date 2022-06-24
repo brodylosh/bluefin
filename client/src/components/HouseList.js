@@ -15,7 +15,8 @@ function HouseList({ houseList, setHouseSearch, currentBuyer }) {
   });
 
   return (
-    <>
+    <div className="list">
+      <br></br>
       <div className="parent grid-parent">
         <h1 className="child">Houses:</h1>
         <Form.Group className="mb-3 search child">
@@ -30,7 +31,8 @@ function HouseList({ houseList, setHouseSearch, currentBuyer }) {
       <Container>
         <Row className="g-4">{renderHouses}</Row>
       </Container>
-    </>
+      <br></br>
+    </div>
   );
 }
 

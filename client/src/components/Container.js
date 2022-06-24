@@ -5,6 +5,7 @@ import Login from './Login';
 import SignUp from './SignUp';
 import HouseList from './HouseList';
 import AgentList from './AgentList';
+import AgentPage from './AgentPage';
 
 function Container() {
   const [houseList, setHouseList] = useState([]);
@@ -36,7 +37,6 @@ function Container() {
     agent.first_name.toLowerCase().includes(agentSearch.toLowerCase())
   );
 
-
   return (
     <div className="Container">
       {currentBuyer ? <NavBar setCurrentBuyer={setCurrentBuyer} /> : null}
@@ -67,15 +67,7 @@ function Container() {
             />
           }
         />
-        {/* <Route
-          path="/agents/:id/houses"
-          element={
-            <houseList
-              houseList={filteredHouses}
-              setHouseSearch={setHouseSearch}
-            />
-          }
-        /> */}
+        <Route path="/agents/:id" element={<AgentPage />} />
       </Routes>
     </div>
   );

@@ -12,7 +12,7 @@ function SignUp({ setCurrentBuyer }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const [errors, setErrors] = useState('');
+  const [errors, setErrors] = useState([]);
 
   const navigate = useNavigate();
 
@@ -37,16 +37,20 @@ function SignUp({ setCurrentBuyer }) {
         res.json().then(setCurrentBuyer);
         navigate('/houses');
       } else {
-        res.json().then((data) => setErrors(data.errors));
+        res.json().then((data) => {
+          setErrors(data.errors);
+          console.log(data.errors);
+        });
       }
     });
   }
 
   return (
     <>
-      <h1 className="float-left">Sign Up:</h1>
       <br></br>
       <Form className="rounded p-4 p-sm-3 form" onSubmit={handleSubmit}>
+        <h1>Sign Up</h1>
+        <br></br>
         <Form.Group className="mb-3 half-left">
           <Form.Label>First Name</Form.Label>
           <Form.Control
@@ -66,7 +70,7 @@ function SignUp({ setCurrentBuyer }) {
         <Form.Group className="mb-3 half-left">
           <Form.Label>Age</Form.Label>
           <Form.Control
-            placeholder="Age"
+            placeholder="Must be older than 18"
             value={age}
             onChange={(e) => setAge(e.target.value)}
           />
@@ -108,12 +112,20 @@ function SignUp({ setCurrentBuyer }) {
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
+          <br></br>
+          <Form.Label>
+            (must contain one lowercase letter, one uppercase letter, and one
+            special character)
+          </Form.Label>
           <Form.Control
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
+        {errors.map((error) => {
+          return <p>{error}</p>;
+        })}
         <Button variant="primary" type="submit">
           Sign Up
         </Button>
@@ -123,8 +135,8 @@ function SignUp({ setCurrentBuyer }) {
         <NavLink to="/" className="d-grid gap-2">
           <Button sz="lg">Log In</Button>
         </NavLink>
+        <br></br>
       </Form>
-      <h4>{errors}</h4>
     </>
   );
 }

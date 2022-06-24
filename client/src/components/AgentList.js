@@ -15,7 +15,8 @@ function AgentList({ agentList, setAgentSearch, currentBuyer }) {
   });
 
   return (
-    <>
+    <div className="list">
+      <br></br>
       <div className="parent grid-parent">
         <h1 className="child">Agents:</h1>
         <Form.Group className="mb-3 search child">
@@ -30,7 +31,8 @@ function AgentList({ agentList, setAgentSearch, currentBuyer }) {
       <Container>
         <Row className="g-4">{renderAgents}</Row>
       </Container>
-    </>
+      <br></br>
+    </div>
   );
 }
 

@@ -28,7 +28,6 @@ function Login({ setCurrentBuyer }) {
           setCurrentBuyer(data);
           navigate('/houses');
         } else {
-          console.log(data);
           setErrors(data.error);
         }
       });
@@ -36,9 +35,10 @@ function Login({ setCurrentBuyer }) {
 
   return (
     <>
-      <h1 className="float-left">Login:</h1>
       <br></br>
       <Form className="rounded p-4 p-sm-3 form" onSubmit={handleSubmit}>
+        <h1>Login</h1>
+        <br></br>
         <Form.Group className="mb-3">
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -65,6 +65,7 @@ function Login({ setCurrentBuyer }) {
         <NavLink to="/signup" className="d-grid gap-2">
           <Button size="lg">Sign Up</Button>
         </NavLink>
+        <br></br>
       </Form>
     </>
   );

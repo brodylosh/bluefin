@@ -18,9 +18,12 @@ function NavBar({ setCurrentBuyer }) {
       <Navbar bg="light" variant="light" className="navbar">
         <Container>
           <NavLink to="/houses">
-            <Button variant="outline-primary">Houses</Button>
+            <Button variant="primary">Houses</Button>
           </NavLink>
-          <Navbar.Brand>
+          <Button variant="outline-primary" onClick={handleLogOut}>
+            Log Out
+          </Button>
+          {/* <Navbar.Brand>
             <img
               alt=""
               src="https://cdn.shopify.com/s/files/1/1061/1924/products/Big_Tuna_Iphone_Emoji_JPG_large.png?v=1571606114"
@@ -28,13 +31,10 @@ function NavBar({ setCurrentBuyer }) {
               height="30"
               className="d-inline-block align-top"
             />{' '}
-          </Navbar.Brand>
+          </Navbar.Brand> */}
           <NavLink to="/agents">
-            <Button variant="outline-primary">Agents</Button>
+            <Button variant="primary">Agents</Button>
           </NavLink>
-          <Button variant="outline-primary" onClick={handleLogOut}>
-            Log Out
-          </Button>
         </Container>
       </Navbar>
       <br></br>

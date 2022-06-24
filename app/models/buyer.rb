@@ -9,18 +9,25 @@ class Buyer < ApplicationRecord
           presence: true,
           length: { minimum: 2},
           uniqueness: true
+        
     validate :password_requirements
 
     def password_requirements
         rules = {
           " must contain at least one lowercase letter"  => /[a-z]+/,
           " must contain at least one uppercase letter"  => /[A-Z]+/,
+          " must contain at least one digit"             => /\d+/,
           " must contain at least one special character" => /[^A-Za-z0-9]+/
         }
+
+        if(password == nil) 
+          password = ''
+        end
       
         rules.each do |message, regex|
           errors.add( :password, message ) unless password.match( regex )
         end
       end
+    
     
 end
