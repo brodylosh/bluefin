@@ -6,8 +6,7 @@ class Buyer < ApplicationRecord
 
     validates :age, numericality: { greater_than_or_equal_to: 18 }
     validates :username,
-          presence: true,
-          length: { minimum: 2},
+          length: { minimum: 1},
           uniqueness: true
         
     validate :password_requirements
@@ -16,7 +15,6 @@ class Buyer < ApplicationRecord
         rules = {
           " must contain at least one lowercase letter"  => /[a-z]+/,
           " must contain at least one uppercase letter"  => /[A-Z]+/,
-          " must contain at least one digit"             => /\d+/,
           " must contain at least one special character" => /[^A-Za-z0-9]+/
         }
 

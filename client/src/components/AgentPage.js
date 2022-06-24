@@ -25,14 +25,16 @@ function AgentPage() {
 
   return (
     <>
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={img_url} />
-        <Card.Body>
-          <Card.Title>{first_name + ' ' + last_name}</Card.Title>
-          <Card.Text>Brokerage: {brokerage}</Card.Text>
-          <Card.Text>License #: {license_number}</Card.Text>
-        </Card.Body>
-      </Card>
+      <div className="agent-display">
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={img_url} />
+          <Card.Body>
+            <Card.Title>{first_name + ' ' + last_name}</Card.Title>
+            <Card.Text>Brokerage: {brokerage}</Card.Text>
+            <Card.Text>License #: {license_number}</Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
       <br></br>
       <Container className="list">
         <br></br>

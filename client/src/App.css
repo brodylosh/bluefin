@@ -16,13 +16,13 @@
 .form {
   width: 50%;
   margin: auto;
-  background-color: #f8f8f8;
+  background-color: #f8f9fa;
 }
 
 .list {
   margin: auto;
   padding: 15px;
-  background-color: #f8f8f8;
+  background-color: #f8f9fa;
   width: 95%;
   border-radius: 25px;
 }
@@ -54,4 +54,8 @@
 .agent-icon {
   width: 50%;
   clip-path: circle();
+}
+
+.card {
+  margin: auto;
 }
