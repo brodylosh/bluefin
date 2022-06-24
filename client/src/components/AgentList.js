@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from './NavBar';
 import AgentCard from './AgentCard';
 import { Container, Row, Form } from 'react-bootstrap';
 
@@ -10,7 +9,6 @@ function AgentList({ agentList, setAgentSearch }) {
 
   return (
     <>
-      <NavBar />
       <div className="parent grid-parent">
         <h1 className="child">Agents:</h1>
         <Form.Group className="mb-3 search child">

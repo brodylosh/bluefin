@@ -8,7 +8,7 @@ class CreateBuyers < ActiveRecord::Migration[7.0]
       t.integer :budget
       t.boolean :preapproved
       t.string :username
-      t.string :password
+      t.string :password_digest
 
       t.timestamps
     end
