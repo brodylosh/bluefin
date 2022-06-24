@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navigate, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 
 function SignUp({ setCurrentBuyer }) {
