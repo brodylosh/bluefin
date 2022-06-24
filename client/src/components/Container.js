@@ -36,6 +36,7 @@ function Container() {
     agent.first_name.toLowerCase().includes(agentSearch.toLowerCase())
   );
 
+
   return (
     <div className="Container">
       {currentBuyer ? <NavBar setCurrentBuyer={setCurrentBuyer} /> : null}
