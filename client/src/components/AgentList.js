@@ -11,15 +11,15 @@ function AgentList({ agentList, setAgentSearch }) {
   return (
     <>
       <NavBar />
-      <h1 className="float-left">Agents:</h1>
-      <Form.Group className="mb-3 search">
-        <Form.Label>Search</Form.Label>
-        <Form.Control
-          placeholder="Search..."
-          onChange={(e) => setAgentSearch(e.target.value)}
-        />
-      </Form.Group>
-      <br></br>
+      <div className="parent grid-parent">
+        <h1 className="child">Agents:</h1>
+        <Form.Group className="mb-3 search child">
+          <Form.Control
+            placeholder="Search..."
+            onChange={(e) => setAgentSearch(e.target.value)}
+          />
+        </Form.Group>
+      </div>
       <br></br>
       <br></br>
       <Container>

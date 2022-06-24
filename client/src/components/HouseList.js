@@ -11,15 +11,15 @@ function HouseList({ houseList, setHouseSearch }) {
   return (
     <>
       <NavBar />
-      <h1 className="float-left">Houses:</h1>
-      <Form.Group className="mb-3 search">
-        <Form.Label>Search</Form.Label>
-        <Form.Control
-          placeholder="Search..."
-          onChange={(e) => setHouseSearch(e.target.value)}
-        />
-      </Form.Group>
-      <br></br>
+      <div className="parent grid-parent">
+        <h1 className="child">Houses:</h1>
+        <Form.Group className="mb-3 search child">
+          <Form.Control
+            placeholder="Search..."
+            onChange={(e) => setHouseSearch(e.target.value)}
+          />
+        </Form.Group>
+      </div>
       <br></br>
       <br></br>
       <Container>
