@@ -8,6 +8,7 @@ import AgentList from './AgentList';
 function Container() {
   const [houseList, setHouseList] = useState([]);
   const [agentList, setAgentList] = useState([]);
+  const [currentBuyer, setCurrentBuyer] = useState('');
 
   useEffect(() => {
     fetch('/houses')
@@ -21,11 +22,20 @@ function Container() {
       .then(setAgentList);
   }, []);
 
+  useEffect(() => {
+    fetch('/me')
+    .then(resp => {
+      if(resp.ok){
+        resp.json().then(buyer => setCurrentBuyer(buyer))
+      }
+    })
+  }, [])
+
   return (
     <div className="Container">
 
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Login currentBuyer = {currentBuyer}/>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/houses" element={<HouseList houseList={houseList} />} />
         <Route path="/agents" element={<AgentList agentList={agentList} />} />
