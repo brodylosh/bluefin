@@ -85,7 +85,7 @@ function SignUp() {
             />
           </InputGroup>
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 half-right">
           <Form.Label>Preapproved</Form.Label>
           <Form.Check
             type="switch"
@@ -93,7 +93,7 @@ function SignUp() {
             onChange={(preapproved) => setPreapproved(false)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Username</Form.Label>
           <Form.Control
             placeholder="Username"

@@ -33,6 +33,11 @@
 }
 
 .search {
-  float: right;
-  width: 20%;
+  width: 50%;
+  margin: auto;
+}
+
+.grid-parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr
 }
