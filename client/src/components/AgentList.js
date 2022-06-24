@@ -1,14 +1,24 @@
 import React from 'react';
+import NavBar from './NavBar';
 import AgentCard from './AgentCard';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Form } from 'react-bootstrap';
 
-function AgentList({ agentList }) {
+function AgentList({ agentList, setAgentSearch }) {
   let renderAgents = agentList.map((agent) => {
     return <AgentCard key={agent.id} agent={agent} />;
   });
+
   return (
     <>
+      <NavBar />
       <h1 className="float-left">Agents:</h1>
+      <Form.Group className="mb-3 search">
+        <Form.Label>Search</Form.Label>
+        <Form.Control
+          placeholder="Search..."
+          onChange={(e) => setAgentSearch(e.target.value)}
+        />
+      </Form.Group>
       <br></br>
       <br></br>
       <br></br>

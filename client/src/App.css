@@ -31,3 +31,8 @@
 .float-left {
   float: left;
 }
+
+.search {
+  float: right;
+  width: 20%;
+}
