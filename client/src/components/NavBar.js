@@ -1,8 +1,18 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Navbar, Container, Button } from 'react-bootstrap';
 
-function NavBar() {
+function NavBar({ setCurrentBuyer }) {
+  const navigate = useNavigate();
+
+  function handleLogOut() {
+    setCurrentBuyer(null);
+    fetch('/logout', {
+      method: 'DELETE',
+    });
+    navigate('/');
+  }
+
   return (
     <>
       <Navbar bg="light" variant="light" className="navbar">
@@ -22,6 +32,9 @@ function NavBar() {
           <NavLink to="/agents">
             <Button variant="outline-primary">Agents</Button>
           </NavLink>
+          <Button variant="outline-primary" onClick={handleLogOut}>
+            Log Out
+          </Button>
         </Container>
       </Navbar>
       <br></br>

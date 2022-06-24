@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import NavBar from './NavBar';
 import Login from './Login';
 import SignUp from './SignUp';
 import HouseList from './HouseList';
@@ -14,6 +15,7 @@ function Container() {
   const [houseSearch, setHouseSearch] = useState('');
   const [agentSearch, setAgentSearch] = useState('');
 
+  const [currentBuyer, setCurrentBuyer] = useState('');
 
   useEffect(() => {
     fetch('/houses')
@@ -27,6 +29,15 @@ function Container() {
       .then(setAgentList);
   }, []);
 
+  useEffect(() => {
+    fetch('/me').then((resp) => {
+      if (resp.ok) {
+        resp.json().then((buyer) => setCurrentBuyer(buyer));
+      }
+    });
+  }, []);
+
+  if (!currentBuyer) return <Login setCurrentBuyer={setCurrentBuyer} />;
 
   useEffect(() => {
     fetch('/me')
@@ -48,6 +59,7 @@ function Container() {
 
   return (
     <div className="Container">
+      {currentBuyer ? <NavBar setCurrentBuyer={setCurrentBuyer} /> : null}
       <Routes>
         <Route path="/" element={<Login currentBuyer = {currentBuyer}/>} />
         <Route path="/signup" element={<SignUp />} />
@@ -57,6 +69,7 @@ function Container() {
             <HouseList
               houseList={filteredHouses}
               setHouseSearch={setHouseSearch}
+              setCurrentBuyer={setCurrentBuyer}
             />
           }
         />

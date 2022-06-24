@@ -1,7 +1,7 @@
 import React from 'react';
-import NavBar from './NavBar';
 import HouseCard from './HouseCard';
-import { Container, Row, Form } from 'react-bootstrap';
+import { Container, Row, Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function HouseList({ houseList, setHouseSearch }) {
   let renderHouses = houseList.map((house) => {
@@ -10,7 +10,6 @@ function HouseList({ houseList, setHouseSearch }) {
 
   return (
     <>
-      <NavBar />
       <div className="parent grid-parent">
         <h1 className="child">Houses:</h1>
         <Form.Group className="mb-3 search child">

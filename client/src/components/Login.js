@@ -1,18 +1,35 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 
-function Login() {
+function Login({ setCurrentBuyer }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  // const [errors, setErrors] = useState([]);
+
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    const login = {
+    const buyer = {
       username: username,
       password: password,
     };
-    console.log(login);
+    fetch('/login', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(buyer),
+    })
+      .then((resp) => resp.json())
+      .then((buyer) => {
+        if (buyer.id) {
+          setCurrentBuyer(buyer);
+          navigate('/houses');
+        } else {
+        }
+      });
   }
 
   return (
@@ -46,6 +63,7 @@ function Login() {
           <Button size="lg">Sign Up</Button>
         </NavLink>
       </Form>
+      {/* <p>{feedback}</p> */}
     </>
   );
 }
