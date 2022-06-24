@@ -13,13 +13,13 @@ function HouseCard({ house }) {
         <ListGroupItem>Beds: {house.beds}</ListGroupItem>
         <ListGroupItem>Baths: {house.baths}</ListGroupItem>
         <ListGroupItem>Square Feet: {house.square_feet}</ListGroupItem>
-        {/* <ListGroupItem>
-            Listed By: {house.agents.first_name + ' ' + house.agent.last_name}
-          </ListGroupItem> */}
+        <ListGroupItem>
+          Listed By: **AGENT HERE**
+          <Button variant="outline-primary">View Listings</Button>
+        </ListGroupItem>
       </ListGroup>
       <Card.Body>
         <Button variant="primary">Save Home</Button>
-        <Button variant="outline-primary">Edit Home</Button>
       </Card.Body>
     </Card>
   );

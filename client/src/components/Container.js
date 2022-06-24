@@ -54,6 +54,15 @@ function Container() {
             />
           }
         />
+        {/* <Route
+          path="/agents/:id/houses"
+          element={
+            <houseList
+              houseList={filteredHouses}
+              setHouseSearch={setHouseSearch}
+            />
+          }
+        /> */}
       </Routes>
     </div>
   );
