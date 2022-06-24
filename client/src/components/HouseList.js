@@ -1,6 +1,6 @@
 import React from 'react';
 import HouseCard from './HouseCard';
-import { Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function HouseList({ houseList }) {
   let renderHouses = houseList.map((house) => {
@@ -8,11 +8,15 @@ function HouseList({ houseList }) {
   });
 
   return (
-    <Row xs={1} md={2} className="g-4">
-      {Array.from({ length: 4 }).map((_, idx) => (
-        <Col>{renderHouses} </Col>
-      ))}
-    </Row>
+    <>
+      <h1 className="float-left">Houses:</h1>
+      <br></br>
+      <br></br>
+      <br></br>
+      <Container>
+        <Row className="g-4">{renderHouses}</Row>
+      </Container>
+    </>
   );
 }
 
