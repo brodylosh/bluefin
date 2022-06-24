@@ -16,9 +16,9 @@ function Login() {
   }
 
   return (
-    <div>
-      <h1>Login:</h1>
-
+    <>
+      <h1 className="float-left">Login:</h1>
+      <br></br>
       <Form className="rounded p-4 p-sm-3 form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Username</Form.Label>
@@ -46,7 +46,7 @@ function Login() {
           <Button size="lg">Sign Up</Button>
         </NavLink>
       </Form>
-    </div>
+    </>
   );
 }
 

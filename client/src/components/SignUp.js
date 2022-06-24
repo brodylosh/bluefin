@@ -39,7 +39,8 @@ function SignUp() {
 
   return (
     <>
-      <h1>Sign Up:</h1>
+      <h1 className="float-left">Sign Up:</h1>
+      <br></br>
       <Form className="rounded p-4 p-sm-3 form" onSubmit={handleSubmit}>
         <Form.Group className="mb-3 half-left">
           <Form.Label>First Name</Form.Label>
