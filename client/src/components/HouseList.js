@@ -1,9 +1,15 @@
 import React from 'react';
 import HouseCard from './HouseCard';
-import { Container, Row, Form, Button } from 'react-bootstrap';
+import { Container, Row, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-function HouseList({ houseList, setHouseSearch }) {
+function HouseList({ houseList, setHouseSearch, currentBuyer }) {
+  const navigate = useNavigate();
+
+  if (!currentBuyer) {
+    navigate('/');
+  }
+
   let renderHouses = houseList.map((house) => {
     return <HouseCard key={house.id} house={house} />;
   });

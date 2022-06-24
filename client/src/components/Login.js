@@ -5,7 +5,7 @@ import { Form, Button } from 'react-bootstrap';
 function Login({ setCurrentBuyer }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState('');
 
   const navigate = useNavigate();
 
@@ -23,11 +23,13 @@ function Login({ setCurrentBuyer }) {
       body: JSON.stringify(buyer),
     })
       .then((resp) => resp.json())
-      .then((buyer) => {
-        if (buyer.id) {
-          setCurrentBuyer(buyer);
+      .then((data) => {
+        if (data.id) {
+          setCurrentBuyer(data);
           navigate('/houses');
         } else {
+          console.log(data);
+          setErrors(data.error);
         }
       });
   }
@@ -57,13 +59,13 @@ function Login({ setCurrentBuyer }) {
           Log In
         </Button>
         <br></br>
+        <h4>{errors}</h4>
         <br></br>
         <h4>New to BlueFin?</h4>
         <NavLink to="/signup" className="d-grid gap-2">
           <Button size="lg">Sign Up</Button>
         </NavLink>
       </Form>
-      {/* <p>{feedback}</p> */}
     </>
   );
 }

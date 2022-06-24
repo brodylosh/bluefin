@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 import { Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 
-function SignUp() {
+function SignUp({ setCurrentBuyer }) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [age, setAge] = useState(0);
@@ -11,6 +11,10 @@ function SignUp() {
   const [preapproved, setPreapproved] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const [errors, setErrors] = useState('');
+
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -30,9 +34,10 @@ function SignUp() {
       body: JSON.stringify(buyer),
     }).then((res) => {
       if (res.ok) {
-        res.json().then(console.log);
+        res.json().then(setCurrentBuyer);
+        navigate('/houses');
       } else {
-        res.json().then(console.log('errors'));
+        res.json().then((data) => setErrors(data.errors));
       }
     });
   }
@@ -90,7 +95,7 @@ function SignUp() {
           <Form.Check
             type="switch"
             value={preapproved}
-            onChange={(preapproved) => setPreapproved(false)}
+            onChange={(e) => setPreapproved(!preapproved)}
           />
         </Form.Group>
         <Form.Group className="mb-3">
@@ -119,6 +124,7 @@ function SignUp() {
           <Button sz="lg">Log In</Button>
         </NavLink>
       </Form>
+      <h4>{errors}</h4>
     </>
   );
 }

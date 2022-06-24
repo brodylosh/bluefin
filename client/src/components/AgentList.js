@@ -1,8 +1,15 @@
 import React from 'react';
 import AgentCard from './AgentCard';
 import { Container, Row, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
-function AgentList({ agentList, setAgentSearch }) {
+function AgentList({ agentList, setAgentSearch, currentBuyer }) {
+  const navigate = useNavigate();
+
+  if (!currentBuyer) {
+    navigate('/');
+  }
+
   let renderAgents = agentList.map((agent) => {
     return <AgentCard key={agent.id} agent={agent} />;
   });

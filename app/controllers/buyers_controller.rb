@@ -1,5 +1,6 @@
 class BuyersController < ApplicationController
     skip_before_action :verify_authenticity_token
+    skip_before_action :authorize, only: :create
 
     def index
         buyers = Buyer.all 
@@ -19,6 +20,6 @@ class BuyersController < ApplicationController
     private
 
     def buyer_params
-        params.permit(:first_name, :last_name, :age, :img_url, :budget, :username, :password)
+        params.permit(:first_name, :last_name, :age, :img_url, :budget, :preapproved, :username, :password)
     end
 end

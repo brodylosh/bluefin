@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import Login from './Login';
 import SignUp from './SignUp';
@@ -18,23 +18,15 @@ function Container() {
     fetch('/houses')
       .then((resp) => resp.json())
       .then(setHouseList);
-  }, []);
-
-  useEffect(() => {
     fetch('/agents')
       .then((resp) => resp.json())
       .then(setAgentList);
-  }, []);
-
-  useEffect(() => {
     fetch('/me').then((resp) => {
       if (resp.ok) {
         resp.json().then((buyer) => setCurrentBuyer(buyer));
       }
     });
   }, []);
-
-  if (!currentBuyer) return <Login setCurrentBuyer={setCurrentBuyer} />;
 
   let filteredHouses = houseList.filter((house) =>
     house.address.toLowerCase().includes(houseSearch.toLowerCase())
@@ -48,8 +40,11 @@ function Container() {
     <div className="Container">
       {currentBuyer ? <NavBar setCurrentBuyer={setCurrentBuyer} /> : null}
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<Login setCurrentBuyer={setCurrentBuyer} />} />
+        <Route
+          path="/signup"
+          element={<SignUp setCurrentBuyer={setCurrentBuyer} />}
+        />
         <Route
           path="/houses"
           element={
@@ -57,6 +52,7 @@ function Container() {
               houseList={filteredHouses}
               setHouseSearch={setHouseSearch}
               setCurrentBuyer={setCurrentBuyer}
+              currentBuyer={currentBuyer}
             />
           }
         />
@@ -66,6 +62,7 @@ function Container() {
             <AgentList
               agentList={filteredAgents}
               setAgentSearch={setAgentSearch}
+              currentBuyer={currentBuyer}
             />
           }
         />
