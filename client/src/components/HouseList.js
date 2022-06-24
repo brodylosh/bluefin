@@ -1,18 +1,31 @@
 import React from 'react';
+import NavBar from './NavBar';
 import HouseCard from './HouseCard';
-import { Row, Col } from 'react-bootstrap';
+import { Container, Row, Form } from 'react-bootstrap';
 
-function HouseList({ houseList }) {
+function HouseList({ houseList, setHouseSearch }) {
   let renderHouses = houseList.map((house) => {
     return <HouseCard key={house.id} house={house} />;
   });
 
   return (
-    <Row xs={1} md={2} className="g-4">
-      {Array.from({ length: 4 }).map((_, idx) => (
-        <Col>{renderHouses} </Col>
-      ))}
-    </Row>
+    <>
+      <NavBar />
+      <div className="parent grid-parent">
+        <h1 className="child">Houses:</h1>
+        <Form.Group className="mb-3 search child">
+          <Form.Control
+            placeholder="Search..."
+            onChange={(e) => setHouseSearch(e.target.value)}
+          />
+        </Form.Group>
+      </div>
+      <br></br>
+      <br></br>
+      <Container>
+        <Row className="g-4">{renderHouses}</Row>
+      </Container>
+    </>
   );
 }
 

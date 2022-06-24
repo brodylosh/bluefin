@@ -2,10 +2,42 @@
   text-align: center;
 }
 
-.parent {
+.title {
+  font-family: "All The Way To The Sun";
+  color: #0051A8;
+  font-size: 100px;
+}
+
+.navbar {
+  width: 35%;
+  margin: auto;
+}
+
+.form {
+  width: 50%;
+  margin: auto;
+}
+
+.half-left {
+  width: 47%;
+  float: left;
+}
+
+.half-right {
+  width: 47%;
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.search {
+  width: 50%;
+  margin: auto;
+}
+
+.grid-parent {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
-  }
+  grid-template-columns: 1fr 1fr
+}

@@ -8,7 +8,12 @@ import AgentList from './AgentList';
 function Container() {
   const [houseList, setHouseList] = useState([]);
   const [agentList, setAgentList] = useState([]);
+
   const [currentBuyer, setCurrentBuyer] = useState('');
+
+  const [houseSearch, setHouseSearch] = useState('');
+  const [agentSearch, setAgentSearch] = useState('');
+
 
   useEffect(() => {
     fetch('/houses')
@@ -22,6 +27,7 @@ function Container() {
       .then(setAgentList);
   }, []);
 
+
   useEffect(() => {
     fetch('/me')
     .then(resp => {
@@ -31,14 +37,47 @@ function Container() {
     })
   }, [])
 
+  let filteredHouses = houseList.filter((house) =>
+    house.address.toLowerCase().includes(houseSearch.toLowerCase())
+  );
+
+  let filteredAgents = agentList.filter((agent) =>
+    agent.first_name.toLowerCase().includes(agentSearch.toLowerCase())
+  );
+
+
   return (
     <div className="Container">
-
       <Routes>
         <Route path="/" element={<Login currentBuyer = {currentBuyer}/>} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/houses" element={<HouseList houseList={houseList} />} />
-        <Route path="/agents" element={<AgentList agentList={agentList} />} />
+        <Route
+          path="/houses"
+          element={
+            <HouseList
+              houseList={filteredHouses}
+              setHouseSearch={setHouseSearch}
+            />
+          }
+        />
+        <Route
+          path="/agents"
+          element={
+            <AgentList
+              agentList={filteredAgents}
+              setAgentSearch={setAgentSearch}
+            />
+          }
+        />
+        {/* <Route
+          path="/agents/:id/houses"
+          element={
+            <houseList
+              houseList={filteredHouses}
+              setHouseSearch={setHouseSearch}
+            />
+          }
+        /> */}
       </Routes>
     </div>
   );
