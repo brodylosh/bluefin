@@ -9,9 +9,6 @@ import AgentList from './AgentList';
 function Container() {
   const [houseList, setHouseList] = useState([]);
   const [agentList, setAgentList] = useState([]);
-
-  const [currentBuyer, setCurrentBuyer] = useState('');
-
   const [houseSearch, setHouseSearch] = useState('');
   const [agentSearch, setAgentSearch] = useState('');
 
@@ -21,32 +18,15 @@ function Container() {
     fetch('/houses')
       .then((resp) => resp.json())
       .then(setHouseList);
-  }, []);
-
-  useEffect(() => {
     fetch('/agents')
       .then((resp) => resp.json())
       .then(setAgentList);
-  }, []);
-
-  useEffect(() => {
     fetch('/me').then((resp) => {
       if (resp.ok) {
         resp.json().then((buyer) => setCurrentBuyer(buyer));
       }
     });
   }, []);
-
-  if (!currentBuyer) return <Login setCurrentBuyer={setCurrentBuyer} />;
-
-  useEffect(() => {
-    fetch('/me')
-    .then(resp => {
-      if(resp.ok){
-        resp.json().then(buyer => setCurrentBuyer(buyer))
-      }
-    })
-  }, [])
 
   let filteredHouses = houseList.filter((house) =>
     house.address.toLowerCase().includes(houseSearch.toLowerCase())
@@ -61,8 +41,11 @@ function Container() {
     <div className="Container">
       {currentBuyer ? <NavBar setCurrentBuyer={setCurrentBuyer} /> : null}
       <Routes>
-        <Route path="/" element={<Login currentBuyer = {currentBuyer}/>} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<Login setCurrentBuyer={setCurrentBuyer} />} />
+        <Route
+          path="/signup"
+          element={<SignUp setCurrentBuyer={setCurrentBuyer} />}
+        />
         <Route
           path="/houses"
           element={
@@ -70,6 +53,7 @@ function Container() {
               houseList={filteredHouses}
               setHouseSearch={setHouseSearch}
               setCurrentBuyer={setCurrentBuyer}
+              currentBuyer={currentBuyer}
             />
           }
         />
@@ -79,6 +63,7 @@ function Container() {
             <AgentList
               agentList={filteredAgents}
               setAgentSearch={setAgentSearch}
+              currentBuyer={currentBuyer}
             />
           }
         />
