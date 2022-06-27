@@ -39,7 +39,6 @@ function SignUp({ setCurrentBuyer }) {
       } else {
         res.json().then((data) => {
           setErrors(data.errors);
-          console.log(data.errors);
         });
       }
     });

@@ -15,7 +15,7 @@ class Buyer < ApplicationRecord
         rules = {
           " must contain at least one lowercase letter"  => /[a-z]+/,
           " must contain at least one uppercase letter"  => /[A-Z]+/,
-          " must contain at least one special character" => /[^A-Za-z0-9]+/
+          " must contain at least one special character" => /[^A-Za-z0-9]+/,
         }
 
         if(password == nil) 
@@ -26,6 +26,5 @@ class Buyer < ApplicationRecord
           errors.add( :password, message ) unless password.match( regex )
         end
       end
-    
     
 end
